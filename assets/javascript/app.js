@@ -12,6 +12,7 @@ function addButton() {
     for (var i = 0; i < topics.length; i++) {
 
         var button = $("<button>").text(topics[i]);
+        button.attr("class", "aFood")
         //appending the button to the top
         $("#foodButtons").append(button)
     }
@@ -24,6 +25,12 @@ $("#addFood").on("click", function () {
     event.preventDefault();
 })
 //everytime I click on the button, console.log of what the the text of the button is. 
+$("#foodButtons").on("click", ".aFood", function () {
+    var clickFoodButton = $(this).text()
+
+    console.log(clickFoodButton)
+})
+
 
 
 //execution, javascript, jQuery, api address
