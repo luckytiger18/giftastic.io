@@ -1,4 +1,4 @@
-var topics = ["Coffee", "Tea", "Ice Cream", "Doughnut", "Bacon", "Cookie", "Taco", "Cake", "Beer"]
+var topics = ["Coffee", "Tea", "Brownies", "Doughnut", "Bacon", "Cookie", "Taco", "Cake", "Beer"]
 
 //clear function
 function clear() {
@@ -26,17 +26,18 @@ $("#addFood").on("click", function () {
 })
 //everytime I click on the button, console.log of what the the text of the button is. 
 $("#foodButtons").on("click", ".aFood", function () {
-    var clickFoodButton = $(this).text()
+    var foodName = $(this).text()
+    var page = "https://api.giphy.com/v1/gifs/search?q=" + foodName + "&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=10";
 
-    console.log(clickFoodButton)
+    $.ajax({
+        url: page,
+        method: "GET"
+    })
+    console.log(page)
 })
-
-
 
 //execution, javascript, jQuery, api address
 console.log("hello world!")
-var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=coffee&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=10");
-xhr.done(function (data) { console.log("success got data", data); });
 
 addButton()
 
