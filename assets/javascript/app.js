@@ -1,14 +1,14 @@
 var topics = ["Coffee", "Tea", "Brownies", "Doughnut", "Bacon", "Cookie", "Taco", "Cake", "Beer"]
 
-//clear function
-function clear() {
-    $("#foodButtons").empty()
+//clear function, using parameters to clear the element
+function clear(id) {
+    $("#" + id).empty();
 }
 
 //console.log(topics.length);
 // for loop through each of the array elements
 function addButton() {
-    clear();
+    clear("foodButtons");
     for (var i = 0; i < topics.length; i++) {
 
         var button = $("<button>").text(topics[i]);
@@ -32,12 +32,18 @@ $("#foodButtons").on("click", ".aFood", function () {
     $.ajax({
         url: page,
         method: "GET"
+    }).done(function (response) {
+        var pageData = response.data;
+        clear("giphyContent");
+        for (var i = 0; i < pageData.length; i++) {
+            var rating = $("<p>").text(pageData[i].rating);
+            $("#giphyContent").append(rating);
+            var addImage = $("<img>").attr("src", pageData[i].images.fixed_height_small_still.url);
+            $("#giphyContent").append(addImage);
+        }
     })
-    console.log(page)
 })
-
 //execution, javascript, jQuery, api address
-console.log("hello world!")
 
 addButton()
 
