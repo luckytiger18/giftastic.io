@@ -34,16 +34,37 @@ $("#foodButtons").on("click", ".aFood", function () {
         method: "GET"
     }).done(function (response) {
         var pageData = response.data;
+        console.log("Response: " + JSON.stringify(response));
         clear("giphyContent");
         for (var i = 0; i < pageData.length; i++) {
             var rating = $("<p>").text(pageData[i].rating);
             $("#giphyContent").append(rating);
-            var addImage = $("<img>").attr("src", pageData[i].images.fixed_height_small_still.url);
+            var addImage = $("<img>").attr("src", pageData[i].images.downsized_still.url);
+            addImage.attr("data-still", pageData[i].images.downsized_still.url);
+            addImage.attr("data-animate", pageData[i].images.downsized.url);
+            addImage.attr("data-state", "still");
+            addImage.addClass("gif_img");
+
             $("#giphyContent").append(addImage);
         }
     })
 })
-//execution, javascript, jQuery, api address
+
+$(document).on("click", ".gif_img", function () {
+    var state = $(this).attr("data-state");
+    if (state == "animate") {
+        $(this).attr("src", $(this).data("still"));
+        $(this).attr("data-state", "still");
+    }
+    else {
+        $(this).attr("src", $(this).data("animate"));
+        $(this).attr("data-state", "animate");
+    }
+})
+
+//make another function that will scan the images to switch the state of the images. You will take in the ID in order to identify the images.
+
+//execution
 
 addButton()
 
