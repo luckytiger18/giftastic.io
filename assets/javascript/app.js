@@ -37,7 +37,7 @@ $("#foodButtons").on("click", ".aFood", function () {
         console.log("Response: " + JSON.stringify(response));
         clear("giphyContent");
         for (var i = 0; i < pageData.length; i++) {
-            var rating = $("<p>").text(pageData[i].rating);
+            var rating = $("<p>").text("Rating: " + pageData[i].rating);
             $("#giphyContent").append(rating);
             var addImage = $("<img>").attr("src", pageData[i].images.downsized_still.url);
             addImage.attr("data-still", pageData[i].images.downsized_still.url);
