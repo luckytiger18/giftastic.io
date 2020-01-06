@@ -1,33 +1,54 @@
+
+body {
+    background-image: url('../images/annie-spratt-V1lmayjfBJc-unsplash.jpg');
+    background-size: 100%;
+}
+
 h1 {
+    color: rgb(131, 131, 131);
     text-align: center;
-    color:navajowhite;
+    font-size: 100px;
+    font-family: 'Modak', cursive;
 }
 
 h4 {
-    margin-left: 200px;
-}
-
-.jumbotron {
-   background-color: navy;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(153, 40, 40);
+    font-family: 'Modak', cursive;
+    /* font-family: 'Courier Prime', monospace; */
 }
 
 div {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 150px;
 }
 
 #foodButtons {
-    padding-left: 100px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Courier Prime', monospace;
+
+}
+
+label {
+    font-size: 30px;
+    color: red;
+    font-weight: 800;
+    font-family: 'Courier Prime', monospace;
 }
 
 #form {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    margin-left: 100px;
+    color: antiquewhite;
+    padding-top: 25px;
+    font-size: 20px;
+    font-family: 'Courier Prime', monospace;
 }
 
 p {
     padding-left: 100px;
     padding-right: 100px;
+    color: antiquewhite;
 }
 
 button, #addFood {
@@ -35,17 +56,31 @@ button, #addFood {
     background-color: aquamarine;
 }
 
-#addFood {
+/* #addFood {
     margin-top: 10px;
+} */
+
+.gif_img {
+    width: 250px;
+    height: 250px;
 }
 
-#giphyContent {
-    margin-left: auto;
-    margin-right: auto;
+.grid-container {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: 300px 300px 300px ;
+    grid-gap: 10px 10px;
+    justify-items: center;
+    justify-content: center;	
+}
+
+footer {
+text-align: center;
 }
 @media screen and (max-width: 600px) {
     body {
-      float: none;
-      width: 100%;
+      background-image: url('./assets/images/annie-spratt-V1lmayjfBJc-unsplash.jpg');
     }
+  
   } 
