@@ -1,13 +1,10 @@
 var topics = [
-    "Dogs", 
-    "Tea", 
-    "Jimmy Fallon", 
-    "Travel", 
-    "Spring", 
-    "Christmas", 
-    "Computer", 
-    "Sea", 
-    "Beer"
+    "Funny",
+    "Tea",
+    "Spring",
+    "Plants",
+    "Corgi",
+    "Coffee",
 ]
 //clear function, using parameters to clear the element
 function clear(id) {
@@ -17,13 +14,13 @@ function clear(id) {
 //console.log(topics.length);
 // loop through each of the array elements
 function addButton() {
-    clear("foodButtons");
+    clear("gifButtons");
     for (var i = 0; i < topics.length; i++) {
 
         var button = $("<button>").text(topics[i]);
         button.attr("class", "aFood")
         //appending the button to the top
-        $("#foodButtons").append(button)
+        $("#gifButtons").append(button)
     }
 }
 
@@ -54,21 +51,21 @@ function getGif(foodName) {
         }
     })
 }
-$("#addFood").on("click", function () {
-    var value = $("#foodInput").val();
+$("#addGif").on("click", function () {
+    var value = $("#gifInput").val();
     if (value !== "" && !topics.includes(value)) {
         topics.push(value);
-        $("#foodInput").val("");
+        $("#gifInput").val("");
         console.log(topics);
         addButton();
         getGif(value);
-    } 
- 
+    }
+
     event.preventDefault();
-  
+
 })
 //everytime I click on the button, console.log of what the the text of the button is. 
-$("#foodButtons").on("click", ".aFood", function(){
+$("#gifButtons").on("click", ".aFood", function () {
     getGif($(this).text());
 })
 
@@ -77,8 +74,7 @@ $(document).on("click", ".gif_img", function () {
     if (state == "animate") {
         $(this).attr("src", $(this).data("still"));
         $(this).attr("data-state", "still");
-    }
-    else {
+    } else {
         $(this).attr("src", $(this).data("animate"));
         $(this).attr("data-state", "animate");
     }
@@ -91,4 +87,4 @@ $(document).on("click", ".gif_img", function () {
 addButton()
 
 
-    // var URL = "https://api.giphy.com/v1/gifs/search?q=" + topics "&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=10"
+// var URL = "https://api.giphy.com/v1/gifs/search?q=" + topics "&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=10"
