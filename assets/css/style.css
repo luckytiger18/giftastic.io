@@ -34,8 +34,11 @@ input {
     border-radius: 500px 100px 600px 500px;
 }
 
+.gif_img:hover {
+    cursor: pointer;
+}
+
 .grid-container {
-    padding-top: 10px;
     display: grid;
     grid-template-columns: 300px 300px 300px 300px;
     grid-template-rows: 300px 300px 300px;
@@ -49,4 +52,7 @@ footer {
 }
 #annie {
     width: 15%;
+}
+#annie:hover {
+    opacity: 80%;
 }

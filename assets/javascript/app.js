@@ -11,24 +11,27 @@ function clear(id) {
     $("#" + id).empty();
 }
 
-//console.log(topics.length);
 // loop through each of the array elements
 function addButton() {
     clear("gifButtons");
     for (var i = 0; i < topics.length; i++) {
 
         var button = $("<button>").text(topics[i]);
-        button.attr("class", "aFood")
+        button.attr("class", "aGif")
         //appending the button to the top
         $("#gifButtons").append(button)
     }
 }
 
-function getGif(foodName) {
-    console.log('hello')
-    // var foodName = $(this).text();
-    console.log(foodName)
-    var page = "https://api.giphy.com/v1/gifs/search?q=" + foodName + "&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=12";
+function getGif(gifName) {
+    // set page ""
+    var page = "";
+    // if gifName is equal to "" show the trending gifs
+    if (gifName === "") {
+        page = "https://api.giphy.com/v1/gifs/trending?api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=12";
+    } else {
+        page = "https://api.giphy.com/v1/gifs/search?q=" + gifName + "&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=12";
+    }
 
     $.ajax({
         url: page,
@@ -40,7 +43,10 @@ function getGif(foodName) {
         for (var i = 0; i < pageData.length; i++) {
             // var rating = $("<p>").text("Rating: " + pageData[i].rating);
             // $("#giphyContent").append(rating);
-            var addImage = $("<img>").attr("src", pageData[i].images.downsized_still.url);
+            var addImage = $("<img>").attr({
+                src: pageData[i].images.downsized_still.url,
+                title: "Click here"
+            });
             addImage.attr("data-still", pageData[i].images.downsized_still.url);
             addImage.attr("data-animate", pageData[i].images.downsized.url);
             addImage.attr("data-state", "still");
@@ -56,7 +62,6 @@ $("#addGif").on("click", function () {
     if (value !== "" && !topics.includes(value)) {
         topics.push(value);
         $("#gifInput").val("");
-        console.log(topics);
         addButton();
         getGif(value);
     }
@@ -64,8 +69,8 @@ $("#addGif").on("click", function () {
     event.preventDefault();
 
 })
-//everytime I click on the button, console.log of what the the text of the button is. 
-$("#gifButtons").on("click", ".aFood", function () {
+
+$("#gifButtons").on("click", ".aGif", function () {
     getGif($(this).text());
 })
 
@@ -80,11 +85,6 @@ $(document).on("click", ".gif_img", function () {
     }
 })
 
-//make another function that will scan the images to switch the state of the images. You will take in the ID in order to identify the images.
-
 //execution
-
 addButton()
-
-
-// var URL = "https://api.giphy.com/v1/gifs/search?q=" + topics "&api_key=JB57LXX6RTn0Td7BIpM5YCGLbYf7Z0Ls&limit=10"
+getGif("")
