@@ -2,6 +2,8 @@
 
 ## Live Link
  - https://luckytiger18.github.io/giftastic.io/
+ 
+ <img src="assets/images/giftasticScreenshot.png" >
 
 ## Requirements
 
