@@ -1,11 +1,9 @@
-# HW - Giftastic!
+# Giftastic!
 
 ## Live Link
  - https://luckytiger18.github.io/giftastic.io/
 
-## Description on how to use the app
-
-## Homework Requirements
+## Requirements
 
 1. Create a page with buttons that will generate 12 gifs from the GIPHY API
 2. The current animated state of the gif should be toggled by clicking on the gif to either still or animate 
@@ -27,7 +25,7 @@
 
 -------------
 
-## What I gained from this homework assignment
+## What I gained:
 
 - I learned about the AJAX "GET" method and pulling data from an API. 
 - I also learned about the specific way to create an event listener on a dynamically created object, which initially gave me some problems. 
